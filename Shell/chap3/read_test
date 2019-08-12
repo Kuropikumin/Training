@@ -1,0 +1,7 @@
+#!/bin/sh
+echo -n "Enter some words : "
+read ANS1 ANS2 ANS3
+
+echo "ANS1 -> $ANS1"
+echo "ANS2 -> $ANS2"
+echo "ANS3 -> $ANS3"
