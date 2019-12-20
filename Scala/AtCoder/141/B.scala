@@ -1,18 +1,15 @@
 object B {
   def main(args: Array[String]): Unit = {
-    val steps = scala.io.StdIn.readLine.split("")
+    val steps = scala.io.StdIn.readLine
     var flag  = true
-    var count = 0
 
-    steps.foreach({ i =>
-      count += 1
-      if(count%2 == 0) {
-        if( i.equals("R")) flag = false
+    (0 until steps.length).foreach({ i =>
+      if((i + 1)%2 == 0) {
+        if( steps(i).equals("R")) flag = false
       }
       else {
-        if( i.equals("L")) flag = false
+        if( steps(i).equals("L")) flag = false
       }
-      println(count + " : " + i)
     })
 
     if(flag) println("Yes") else println("No")
