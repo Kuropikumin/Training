@@ -9,7 +9,7 @@ int  see_more();
 
 int main( int argc, char* argv[] )
 {
-    FILE *fp;
+    FILE* fp;
     if( argc == 1 ) do_more( stdin );
     else
     {
@@ -29,7 +29,7 @@ int main( int argc, char* argv[] )
 /*
  PaGELEN 行の情報を読み、see_more()を呼び出して命令を待つ
  */
-void do_more( FILE *fp )
+void do_more( FILE* fp )
 {
     char line[LINELEN];
     int  num_of_lines = 0;
