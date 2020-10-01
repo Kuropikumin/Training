@@ -1,0 +1,2 @@
+exec 'uname'
+puts 'hogehoge'
