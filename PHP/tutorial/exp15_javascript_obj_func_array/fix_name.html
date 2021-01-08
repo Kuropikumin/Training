@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'pre' )
+            elm.id = 'test'
+            elm.innerHTML += "fixNames( 'the', 'DALLAS', 'CowBoys') : "
+            elm.innerHTML += fixNames( 'the', 'DALLAS', 'CowBoys' )
+            elm.innerHTML += "<br /><br />fixNamesArray( 'the', 'DALLAS', 'CowBoys' ) : <br />"
+            str_arr = fixNamesArray( 'the', 'DALLAS', 'CowBoys' )
+            for( var i = 0; i < str_arr.length; i++ ) {
+                elm.innerHTML += i + " : " + str_arr[i] + "<br />"
+            }
+            document.body.appendChild( elm )
+
+            function fixNames()
+            {
+                var s = ''
+                for( var i = 0; i < fixNames.arguments.length; i++ ) {
+                    s += fixNames.arguments[i].charAt( 0 ).toUpperCase() + fixNames.arguments[i].substr(1).toLowerCase() + ' '
+                }
+                return s.substr( 0, s.length - 1 )
+            }
+
+            function fixNamesArray()
+            {
+                var s = new Array()
+                for( var i = 0; i < fixNamesArray.arguments.length; i++ ) {
+                    s[i] = fixNamesArray.arguments[i].charAt( 0 ).toUpperCase() + fixNamesArray.arguments[i].substr(1).toLowerCase() + ' '
+                }
+                return s
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

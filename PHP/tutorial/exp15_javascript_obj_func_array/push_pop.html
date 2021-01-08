@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            arr = [ 'hoge', 'piyo' ]
+            elm.innerHTML += " first > [" + arr.join( ' : ' ) + "]<br />"
+            arr.push( 'fuga' )
+            elm.innerHTML += " push( 'fuga' ) > [" + arr.join( ' : ' ) + "]<br />"
+            removed = arr.pop()
+            elm.innerHTML += " pop() > [" + arr.join( ' : ' ) + "] and poped data is '" + removed + "'<br />"
+            arr.unshift( 'hogehoge' )
+            elm.innerHTML += " unshift( 'hogehoge' ) > [" + arr.join( ' : ' ) + "]<br />"
+            removed = arr.shift( )
+            elm.innerHTML += " shift() > [" + arr.join( ' : ' ) + "] and poped data is '" + removed + "'<br />"
+
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

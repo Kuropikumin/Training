@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+
+            displayItems( 'hoge', 'fuga', 'piyo', 'hogehoge', 'fugafuga', 1, 2, 3, 4 )
+            function displayItems()
+            {
+                const elm = document.createElement( 'hoge' )
+
+                for( var i = 0; i < displayItems.arguments.length; i++ ) {
+                    elm.innerHTML += displayItems.arguments[i] + "<br />"
+                }
+                elm.id = 'function test'
+                document.body.appendChild( elm )
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            function product( a, b )
+            {
+                c = 30
+                var d = 40
+                return a*b
+            }
+            e = 50
+            f = 60
+
+            const elm = document.createElement( 'pre' )
+            elm.innerHTML = product( 3, 4 ) + '<br />'
+            elm.innerHTML += 'a = ' + ( (typeof(a) == 'undefined') ? 'undefined' : a ) + '<br />'
+            elm.innerHTML += 'b = ' + ( (typeof(b) == 'undefined') ? 'undefined' : b ) + '<br />'
+            elm.innerHTML += 'c = ' + ( (typeof(c) == 'undefined') ? 'undefined' : c ) + '<br />'
+            elm.innerHTML += 'd = ' + ( (typeof(d) == 'undefined') ? 'undefined' : d ) + '<br />'
+            elm.innerHTML += 'e = ' + ( (typeof(e) == 'undefined') ? 'undefined' : e ) + '<br />'
+            elm.innerHTML += 'f = ' + ( (typeof(f) == 'undefined') ? 'undefined' : f ) + '<br />'
+            elm.id = 'func test'
+            document.body.appendChild( elm )
+        //--></script>
+    </body>
+</html>

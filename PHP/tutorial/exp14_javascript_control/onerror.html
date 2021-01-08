@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            onerror = errorHandler
+            hogehoge( 10 )
+
+            function errorHandler( message, url, line )
+            {
+                out = "すみません。エラーが発生しました。\n\n";
+                out += "エラー： " + message + "\n";
+                out += "URL: " + url + "\n";
+                out += "行: " + line + "\n\n";
+                out += "OKを押してください\n\n";
+                alert( out );
+                return true;
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>
