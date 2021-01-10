@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> position </title>
+        <style>
+            #object1 {
+                position   :absolute;
+                background :pink;
+                width      :100px;
+                height     :100px;
+                top        :100px;
+                left       :0px;
+            }
+
+            #object2 {
+                position   :relative;
+                background :lightgreen;
+                width      :100px;
+                height     :100px;
+                top        :92px;
+                left       :110px;
+            }
+
+            #object3 {
+                position   :fixed;
+                background :yellow;
+                width      :100px;
+                height     :100px;
+                top        :100px;
+                left       :236px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='object1'> 絶対配置 </div>
+        <div id='object2'> 相対配置 </div>
+        <div id='object3'> 固定配置 </div>
+    </body>
+</html>

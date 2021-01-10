@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> AJAX XML Example </title>
+        <script type="text/javascript" src="js/myajax.js"></script>
+    </head>
+    <body>
+        <h2> Loading XML content into a DIV </h2>
+        <div id = 'info'>This sentence will be replaced</div>
+        <script type="text/javascript"> <!--
+            nocache = "&nocache=" + Math.random() * 10000000
+            //url     = "rss.news.yahoo.com/rss/topstries"
+            url     = "news.yahoo.co.jp/rss/topics/top-picks.xml"
+            request = ajaxRequest()
+            out     = ''
+
+            request.open( "GET", "xmlget.php?url=" + url + nocache, true )
+
+            request.onreadystatechange = function()
+            {
+                if( this.readyState == 4 ) {
+                    if( this.status == 200 ) {
+                        if( this.responseXML != null ) {
+                            titles = this.responseXML.getElementsByTagName( 'title' )
+
+                            for( var j = 0; j < titles.length; j++ ) {
+                                out += titles[j].childNodes[0].nodeValue + '<br />'
+                            }
+                            document.getElementById( 'info' ).innerHTML = out
+                        }
+                        else alert( "Ajax error: No data received" )
+                    }
+                    else alert( "Ajax error: " + this.statusText )
+                }
+            }
+
+            request.send( null )
+            console.log( request )
+        //--></script>
+        <noscript>
+            Your browser doesn't support or has disabled JavaScript!
+        </noscript>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> gradation </title>
+        <style>
+            .solid{ color: blue; background-color: yellow}
+            .orangegrad {
+                background: #fb0; /* 旧式ブラウザ用 */
+                background: -moz-linear-gradient( top, #ffbb00 0%, #ff5500 100% ); /* Firefox 3.6+ */
+                background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #ffbb00 ), color-stop( 100%, #ff5500 ) );  /* Safari4-5, Chrome3-9, iOS Safari4-5, Android 2.1-3.0*/
+                background: -webkit-linear-gradient( top, #ffbb00 0%, #ff5500 100% );  /* Safari 5.1+, Chrome 10+, iOS Safari5.1+, Android 4+ */
+                background: -o-linear-gradient( top, #ffbb00 0%, #ff5500 100% );  /* Opera 11.10+ */
+                background: -ms-linear-gradient( top, #ffbb00 0%, #ff5500 100% );  /* IE 10+ */
+                background: linear-gradient( to bottom, #ffbb00 0%, #ff5500 100% );  /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbb00', endColorstr='#ff5500', GradientType = 0 );
+            }
+        </style>
+    </head>
+    <body>
+        <div class='solid'>
+            黄色い背景に<br />
+            重ねた<br />青いテキスト
+        </div>
+        <div class='orangegrad'>
+            オレンジの線形グラデーションに<br />
+            重ねた<br />黒いテキスト
+        </div>
+
+    </body>
+</html>
