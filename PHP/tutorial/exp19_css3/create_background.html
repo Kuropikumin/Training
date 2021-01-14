@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> CSS3 Multiple Backgrounds Example </title>
+        <style>
+            .border {
+                font-family :'Times New Roman';
+                font-style  :italic;
+                font-size   :170%;
+                text-align  :center;
+                padding     :60px;
+                width       :350px;
+                height      :500px;
+                background  :url( 'img/b1.gif' ) top    left  no-repeat,
+                             url( 'img/b2.gif' ) top    right no-repeat,
+                             url( 'img/b3.gif' ) bottom left  no-repeat,
+                             url( 'img/b4.gif' ) bottom right no-repeat,
+                             url( 'img/ba.gif' ) top          repeat-x,
+                             url( 'img/bb.gif' ) left         repeat-y,
+                             url( 'img/bc.gif' ) right        repeat-y,
+                             url( 'img/bd.gif' ) bottom       repeat-x
+            }
+        </style>
+    </head>
+    <body>
+        <div class='border'>
+            <h1>Swimming Certificate</h1>
+            <h2>Awarded To:</h2>
+            <h3>_____________________</h3>
+            <h2>Date:</h2>
+            <h3>__/__/____</h3>
+        </div>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>
