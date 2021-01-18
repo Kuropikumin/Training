@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> function C</title>
+        <script type="text/javascript" src="js/myjavascript.js"></script>
+        <style>
+            .myclass {
+                color: red;
+            }
+            .otherclass {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='myclass'>
+            ここは MyClassです
+            文字は赤色です
+        </div>
+        <div class='otherclass'>
+            ここは OtherClass です。
+            文字は緑です
+        </div>
+        <div class='myclass'>
+            ここは MyClassです
+            文字は赤色です
+        </div>
+        <div class='otherclass'>
+            ここは OtherClass です。
+            文字は緑です
+        </div>
+        <button type="button" id='pc' name='aaa' value='click'> 下線部を引く </button> <br />
+        ボタンをクリックするとMyClassの文字列に javascript で下線を引きます
+        font size を 18pxにします
+        <script type="text/javascript"> <!--
+            //const elm = document.createElement( 'hoge' )
+            //elm.id = 'test'
+            //document.body.appendChild( elm )
+            //var b = document.getElementById( 'button' )
+            O( 'pc' ).onclick = function() {
+                change_class = C('myclass')
+                for( i = 0; i < change_class.length; i++ ) {
+                    change_class[i].style.textDecoration = 'underline'
+                    change_class[i].style.fontSize       = '18px'
+                }
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>
