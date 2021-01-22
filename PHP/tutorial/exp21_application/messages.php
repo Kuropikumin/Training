@@ -42,12 +42,12 @@ _END;
         $result = queryMysql( "SELECT * FROM messages WHERE recip='$view' ORDER BY time DESC" );
         $num    = $result->num_rows;
 
-        for( $j = 0; $j < num; $j++ ) {
+        for( $j = 0; $j < $num; $j++ ) {
             $row = $result->fetch_row();
 
             if( $row[3] == 0 || $row[1] == $user || $row[2] == $user ) {
                 echo date('M jS \'y g:ia:', $row[4] );
-                echo " <a href='messages.php?view=$row[1]'>$row[1]</a>";
+                echo " <a href='messages.php?view=$row[1]'>$row[1]</a> ";
 
                 if( $row[3] == 0 ) echo "wrote: &quot;$row[5]&quot; ";
                 else               echo "whispered: <span class='whisper'>" .
@@ -62,7 +62,7 @@ _END;
     }
 
     if( !$num ) echo "<br /><span class='info'> No messages yet</span><br /><br />";
-    echo "<br /><a class='button' href='message.php?view=$view'>Refresh messages</a>";
+    echo "<br /><a class='button' href='messages.php?view=$view'>Refresh messages</a>";
 ?>
 
 </div><br /></body></html>

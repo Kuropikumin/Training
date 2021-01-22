@@ -1,9 +1,14 @@
 <?php
     session_start();
     echo "<!DOCTYPE html>\n<html><head><script src='js/myjs.js'></script>";
+    echo "<!-- UIkit CSS -->" .
+         "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/uikit@3.6.13/dist/css/uikit.min.css' /> " .
+         "<!-- UIkit JS -->" .
+         "<script src='https://cdn.jsdelivr.net/npm/uikit@3.6.13/dist/js/uikit.min.js'></script>" .
+         "<script src='https://cdn.jsdelivr.net/npm/uikit@3.6.13/dist/js/uikit-icons.min.js'></script>";
     include_once 'functions.php';
 
-        $userstr = '( Guest )';
+    $userstr = '( Guest )';
 
     if( isset( $_SESSION['user'] ) ) {
         $user     = $_SESSION['user'];
@@ -14,7 +19,7 @@
 
     echo "<title>$appname $userstr</title>" . 
          "<link rel='stylesheet' href='css/style.css' type='text/css' />" .
-         "</head><body><div class='appname'>$appname $userstr</div>";
+         "</head><body><div class='uk-heading-primary appname'>$appname $userstr</div>";
 
     if( $loggedin ) {
         echo "<br ><ul class='menu'>" .

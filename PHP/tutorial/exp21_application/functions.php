@@ -56,7 +56,7 @@
 	{
         $user_file = "img/user/$user.jpg";
 		if( file_exists( $user_file ) ) {
-			echo "<img src='$user_file' aligin='left' />";
+			echo "<img src='$user_file' aligin='left' /><br />";
 		}
 
 		$result = queryMysql( "SELECT * FROM profiles WHERE user='$user'" );

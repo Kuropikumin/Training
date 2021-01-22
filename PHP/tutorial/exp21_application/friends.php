@@ -54,7 +54,7 @@
 
     if( sizeof( $followers ) ) {
         echo "<span class='subhead'>$name2 followers</span><ul>";
-        foreach( $followers as $friend ) echo "<li><a href='members.php?view=$friend'>$friend</a>";
+        foreach( $followers as $friend ) echo "<li><a href='members.php?view=$friend'>$friend</a></li>";
         echo "</ul>";
         $friends = TRUE;
     }
@@ -68,7 +68,8 @@
 
     if( !$friends ) echo "<br />You don't have any friends yet.<br /><br />";
 
-    echo "<a class='button' href='members.php?view=$view'>";
+    echo "<a class='button' href='members.php?view=$view'>" .
+         "View $name2 messages</a>";
 ?>
 
 </div><br /></body></html>
