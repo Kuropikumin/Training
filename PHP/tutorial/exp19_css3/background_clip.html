@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> </title>
+        <style>
+            #square {
+                width             :200px;
+                height            :200px;
+                border            :17px dashed #333;
+                padding           :20px;
+                background-color  :#d3d3d3;
+                background-clip   :border-box;
+                background-origin :border-box;
+                background-image  :url( img/square.gif );
+                background-repeat :no-repeat;
+            }
+
+            #inner {
+                width      :150px;
+                height     :150px;
+                border     :2px dotted #333;
+                padding    :23px;
+                font-size  :15px;
+                text-align :center;
+                color      :green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "square">
+            <div id = "inner">
+                <br /><br /><br /><br /><br />
+                clip: border-box<br />
+                origin: border-box
+            </div>
+        </div>
+        <br />
+        <div id = "square" style="background-clip: padding-box">
+            <div id = "inner">
+                <br /><br /><br /><br /><br />
+                clip: padding-box<br />
+                origin: border-box
+            </div>
+        </div>
+        <br />
+        <div id = "square" style="background-clip: content-box">
+            <div id = "inner">
+                <br /><br /><br /><br /><br />
+                clip: content-box<br />
+                origin: border-box
+            </div>
+        </div>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

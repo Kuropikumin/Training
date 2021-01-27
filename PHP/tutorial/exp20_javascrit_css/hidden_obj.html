@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Add Object </title>
+        <script type="text/javascript" src="js/myjavascript.js" ></script>
+        <style>
+            #obj1 {
+                border     :1px solid red;
+                width      :100px;
+                height     :100px;
+                background :#eee;
+                color      :blue;
+            }
+
+            #obj2 {
+                border     :12px solid blue;
+                width      :100px;
+                height     :100px;
+                background :#f0f;
+                color      :green;
+            }
+        </style>
+    </head>
+    <body>
+        <button id='visible1' value='create'> squareオブジェクトを表示する(visibility = 'visible') </button><br />
+        <button id='hidden1' value='create'> squareオブジェクトを隠す(visibility = 'hidden') </button><br />
+        <div id='obj1' >ここに四角形が表示される</div><br />
+        <button id='visible2' value='create'> circleオブジェクトを表示する(display = 'block') </button><br />
+        <button id='hidden2' value='create'> circleオブジェクトを隠す(display = 'none') </button><br />
+        <div id='obj2' >ここに四角形が表示される</div><br />
+        display=none の場合、表示されない四角形の部分が詰められて表示される
+
+        <script type="text/javascript"> <!--
+            O( 'visible1' ).onclick = function() {
+                O( 'obj1' ).style.visibility = 'visible'
+            }
+            O( 'hidden1' ).onclick = function() {
+                O( 'obj1' ).style.visibility = 'hidden'
+            }
+
+            O( 'visible2' ).onclick = function() {
+                S( 'obj2' ).display = 'block'
+            }
+            O( 'hidden2' ).onclick = function() {
+                S( 'obj2' ).display = 'none'
+            }
+
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

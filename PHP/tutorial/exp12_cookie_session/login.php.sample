@@ -1,0 +1,6 @@
+<?php
+    $db_hostname = 'write hotname';
+    $db_database = 'write database';
+    $db_username = 'write mysql user name';
+    $db_password = 'write mysql user password';
+?>

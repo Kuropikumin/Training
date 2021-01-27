@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <a id='mylink1' href="https://www.google.com"> Click Google link </a><br />
+        <a id='mylink2' href="https://www.yahoo.co.jp"> Click Yahoo! link </a><br />
+        <a id='mylink3' href="https://www.hatena.ne.jp"> Click hatena link </a><br />
+        <script type="text/javascript"> <!--
+            url1 = document.links.mylink1.href
+            url2 = document.links.mylink2.href
+            url3 = document.links.mylink3.href
+
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'link test'
+            elm.innerHTML += 'document.links.mylink1.href = ' + url1 + "<br />"
+            elm.innerHTML += 'document.links.mylink2.href = ' + url2 + "<br />"
+            elm.innerHTML += 'document.links.mylink3.href = ' + url3 + "<br />"
+            elm.innerHTML += 'document.links.length = ' + document.links.length + "<br /><br />"
+
+            for( j = 0; j < document.links.length; j++ ) {
+                elm.innerHTML += 'document.links[' + j + '].href = ' + document.links[j].href + "<br />"
+            }
+            elm.innerHTML += 'j = ' + j
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

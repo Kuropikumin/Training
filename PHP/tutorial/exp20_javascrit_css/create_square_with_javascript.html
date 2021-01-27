@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Create Square with Javascript </title>
+        <script style="text/javascript" src="js/myjavascript.js"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id='square'>
+            ここは divタグ内<br />
+            idはsquare<br />
+            それ以外の設定はなし<br />
+        </div>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+
+            change_obj = S( 'square' )
+            change_obj.border     = 'solid 1px red'
+            change_obj.width      = '300px'
+            change_obj.height     = '300px'
+            change_obj.background = '#eee'
+            change_obj.color      = 'blue'
+            change_obj.fontSize   = '20px'
+            change_obj.fontFamily = 'Helvetica'
+            change_obj.fontStyle  = 'italic'
+        //--></script>
+        <noscript>
+        </noscript>
+        javascriptを使ってid=square オブジェクトに以下の設定を追加<br />
+        border     = 'solid 1p red'<br />
+        width      = '300px'<br />
+        height     = '300px'<br />
+        background = '#eee'<br />
+        color      = 'blue'<br />
+        fontSize   = '20px'<br />
+        fontFamily = 'Helvetica'<br />
+        fontStyle  = 'italic'<br />
+    </body>
+</html>

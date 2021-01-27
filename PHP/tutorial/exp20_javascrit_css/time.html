@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> 割り込み処理 </title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id = 'mydiv' > </div>
+        <script type="text/javascript"> <!--
+            //setTimeout( myalert, 5000 )
+            setTimeout( myLoopAlert, 5000 )
+ 
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+
+            function myalert()
+            {
+                alert( '5秒後に表示されるアラートです' )
+                obj = document.getElementById( 'mydiv' )
+                obj.innerHTML = "5秒後に表示されます"
+            }
+
+            function myLoopAlert()
+            {
+                setTimeout( myLoopAlert, 5000 )
+                alert( '5秒後に表示されるアラートです\nこれはループされます' )
+                obj = document.getElementById( 'mydiv' )
+                obj.innerHTML += "5秒後に表示されます この文字列はループ分表示します<br />"
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

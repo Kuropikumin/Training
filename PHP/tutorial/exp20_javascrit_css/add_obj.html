@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Add Object </title>
+        <script type="text/javascript" src="js/myjavascript.js" ></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        ボタンを押すと四角形が生成される<br /><br />
+        <button id='create' value='create'> DIVオブジェクトを追加 </button><br />
+        <button id='remove' value='create'> DIVオブジェクトを削除 </button><br />
+
+        <script type="text/javascript"> <!--
+            O( 'create' ).onclick = function() {
+                newdiv    = document.createElement( 'div' )
+                newdiv.id = 'NewDiv'
+                document.body.appendChild( newdiv )
+
+                S( newdiv ).border = 'solid 1px red'
+                S( newdiv ).width  = '100px'
+                S( newdiv ).height = '100px'
+                newdiv.innerHTML   = 'OKを押すことで追加されたdivオブジェクト'
+                tmp                = newdiv.offsetTop
+            }
+
+            O( 'remove' ).onclick = function() {
+                if( newdiv != null ) {
+                    pnode = newdiv.parentNode
+                    pnode.removeChild( newdiv )
+                    tmp = pnode.offsetTop
+                    newdiv = null
+                }
+            }
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

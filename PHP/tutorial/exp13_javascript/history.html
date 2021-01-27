@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            elm.innerHTML = '5秒後に1つ前の画面に戻ります<br />'
+            elm.innerHTML += '履歴の数は' + history.length + 'です<br />'
+            document.body.appendChild( elm )
+
+            sleep(5)
+            history.back()
+
+            function sleep( waitSec )
+            {
+                var startMsec = new Date()
+                while( ( new Date() - startMsec )/1000 < waitSec ) {}
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

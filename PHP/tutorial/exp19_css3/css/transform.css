@@ -1,0 +1,49 @@
+.outside {
+    width       :200px;
+    height      :200px;
+}
+.b1 {
+    width       :100px;
+    height      :100px;
+    font-family :vlgothic;
+    font-size   :12px;
+    background  :orange;
+    transform   :translate( 50px, 50px );
+}
+
+.b2 {
+    width       :100px;
+    height      :100px;
+    font-family :vlgothic;
+    font-size   :12px;
+    background  :orange;
+    transform   :scale( 2.0 ) translate( 50px, 50px );
+}
+
+.b3 {
+    width       :100px;
+    height      :100px;
+    font-family :vlgothic;
+    background  :orange;
+    font-size   :12px;
+    transform   :translate( 150px, 50px );
+}
+
+.b4 {
+    width       :100px;
+    height      :100px;
+    font-family :vlgothic;
+    background  :orange;
+    font-size   :12px;
+    transform   :rotate( 45deg ) translate( 50px, 50px );
+}
+
+.b5 {
+    width       :100px;
+    height      :100px;
+    font-family :vlgothic;
+    background  :orange;
+    font-size   :12px;
+    transform   :skew( 20deg ) translate( 50px, 50px );
+}
+

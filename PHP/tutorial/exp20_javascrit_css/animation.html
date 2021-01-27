@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Animation </title>
+        <style>
+            #box {
+                position   :absolute;
+                background :orange;
+                border     :2px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='box'><div>
+        <script type="text/javascript"> <!--
+            SIZE = 0
+            LEFT = 0
+            setInterval( animate, 100 )
+
+            function animate()
+            {
+                SIZE += 10
+                LEFT += 3
+
+                if( SIZE > 200 ) SIZE = 0
+                if( LEFT > 600 ) LEFT = 0
+
+                obj = document.getElementById( 'box' )
+                obj.style.width  = SIZE + 'px'
+                obj.style.height = SIZE + 'px'
+                obj.style.left   = LEFT + 'px'
+            }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

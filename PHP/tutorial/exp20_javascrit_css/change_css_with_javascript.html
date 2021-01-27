@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Change css with Javascript </title>
+        <script type="text/javascript" src="js/myjavascript.js"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id='mydiv' style="color: green">
+            ここはmydivです
+            style color: green をセットしています
+        </div>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+            S( 'mydiv' ).color = 'red'
+        //--></script>
+        javascriptでmydivのカラーをgreen から red に変更しています。
+        <noscript>
+        </noscript>
+    </body>
+</html>

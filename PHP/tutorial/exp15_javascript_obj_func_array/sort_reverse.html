@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+
+            arr = [ "Football", "Tennis", "Baseball", "Hockey" ]
+            elm.innerHTML += "arr > [" + arr.join( ' : ' ) + "] <br />"
+
+            arr = [ "Football", "Tennis", "Baseball", "Hockey" ]
+            elm.innerHTML += "sort > [" + arr.sort().join( ' : ' ) + "] <br />"
+
+            arr = [ "Football", "Tennis", "Baseball", "Hockey" ]
+            elm.innerHTML += "sort.reverse > [" + arr.sort().reverse().join( ' : ' ) + "] <br />"
+
+            arr = [ 7, 23, 6, 74 ]
+            elm.innerHTML += "arr > [" + arr.join( ' : ' ) + "] <br />"
+
+            arr = [ 7, 23, 6, 74 ]
+            elm.innerHTML += "sort > [" + arr.sort().join( ' : ' ) + "] <br />"
+
+            arr = [ 7, 23, 6, 74 ]
+            elm.innerHTML += "sort( function(a,b){return a - b} ) > [" + arr.sort( function(a,b){return a - b} ).join( ' : ' ) + "] <br />"
+
+            arr = [ 7, 23, 6, 74 ]
+            elm.innerHTML += "sort( function(a,b){return b - a} ) > [" + arr.sort( function(a,b){return b - a} ).join( ' : ' ) + "] <br />"
+
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

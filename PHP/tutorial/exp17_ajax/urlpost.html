@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="js/myajax.js"></script>
+    </head>
+    <body>
+        <center />
+            <h1>Loading a web page into a DIV</h1>
+            <div id='info'>This sentence will be replaced</div>
+            <script type="text/javascript"> <!--
+                params = "url=oreilly.com"
+                request = new ajaxRequest()
+                console.log( "Before Set request >>> \n" )
+                console.log( request )
+                request.open( "POST", "urlpost.php", true )
+                request.setRequestHeader( "Content-type", "application/x-www-form-urlencoded" )
+                request.setRequestHeader( "Content-length", params.length )
+                request.setRequestHeader( "Connection", "close" )
+                console.log( "After Set request >>> \n" )
+                console.log( request )
+
+                request.onreadystatechange = function()
+                {
+                    if( this.readyState == 4 ) {
+                        if( this.status == 200 ) {
+                            if( this.responseText != null ) {
+                                document.getElementById( 'info' ).innerHTML = this.responseText
+                            }
+                            else alert( "Ajax error: No data received" )
+                        }
+                        else alert( "Ajax error: " + this.statusText )
+                    }
+                }
+
+                request.send( params )
+
+                const elm = document.createElement( 'hoge' )
+                elm.id = 'test'
+                document.body.appendChild( elm )
+            //--></script>
+            <noscript>
+            Your browser doesn't support or has disabled JavaScript!
+            </noscript>
+    </body>
+</html>

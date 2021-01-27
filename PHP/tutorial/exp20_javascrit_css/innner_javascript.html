@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> Inner Javascript </title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <img id='pic' src='img/apple.jpg'
+                      onmouseover="this.src='img/orange.jpg'"
+                      onmouseout ="this.src='img/apple.jpg'" />
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+
+            // 以下は上記img部分に記載する処理と同じ
+            //var obj = document.getElementById('pic')
+            //obj.onmouseover = function() { this.src = 'img/orange.jpg' }
+            //obj.onmouseout  = function() { this.src = 'img/apple.jpg' }
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>

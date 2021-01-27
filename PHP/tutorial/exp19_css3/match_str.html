@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ja">
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title> </title>
+        <style>
+            a[href^='https://www.google'] { color  :orange; }
+            img[src$='.png']              { border :100px solid black; }
+            a[href*='blog']               { color  :green; }
+        </style>
+    </head>
+    <body>
+        https://www.google から始まる aタグについてはオレンジ色にする：<br />
+        <a href="https://www.google.com" > Google </a> <br />
+        <a href="https://www.yahoo.co.jp" > Yahoo Japan </a><br /> <br />
+        .png 拡張子（.pngで終わる）borderを100pxにする：<br />
+        <img src="img/test.png" > test.png </a> <br />
+        <img src="img/test.jpg" > test.jpg </a><br /> <br />
+        blog が含まれる aタグについては緑色にする：<br />
+        <a href="https://blog.livedoor.com/" > Livedoor blog </a> <br />
+        <a href="https://qiita.com/" > Qiita </a><br /> <br />
+
+        <script type="text/javascript"> <!--
+            const elm = document.createElement( 'hoge' )
+            elm.id = 'test'
+            document.body.appendChild( elm )
+        //--></script>
+        <noscript>
+        </noscript>
+    </body>
+</html>
