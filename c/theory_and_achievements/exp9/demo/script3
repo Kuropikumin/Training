@@ -1,0 +1,14 @@
+#!/bin/sh
+# script3 - 環境変数がコマンドに渡される様子を示す
+# TZは標準時間帯で、 date, ls -l などに影響を与える
+
+echo "The time in Boston is "
+      TZ=EST5EDT
+      export TZ  # 環境に TZ を加える
+      date       # date は TZ に格納されている値を使う
+echo "The time in Chicago is "
+      TZ=CST6CDT
+      date       # date は TZ に格納されている値を使う
+echo "The time in LA is "
+      TZ=PST8PDT
+      date       # date は TZ に格納されている値を使う
