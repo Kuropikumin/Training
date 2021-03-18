@@ -1,0 +1,7 @@
+println( "1 > 2 = "         + ( 1 > 2 )         + " : " + ( 1 > 2 ).getClass )
+println( "1 < 2 = "         + ( 1 < 2 )         + " : " + ( 1 < 2 ).getClass )
+println( "1.0 <= 1.0 = "    + ( 1.0 <= 1.0 )    + " : " + ( 1.0 <= 1.0 ).getClass )
+println( "3.5f > 3.6f = "   + ( 3.5f > 3.6f )   + " : " + ( 3.5f > 3.6f ).getClass )
+println( "'a' > 'A' = "     + ( 'a' > 'A' )     + " : " + ( 'a' > 'A' ).getClass )
+println( "!true = "         + ( !true )         + " : " + ( !true ).getClass )
+println( "!true.unary_! = " + ( !true.unary_! ) + " : " + ( !true.unary_! ).getClass )
