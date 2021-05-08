@@ -1,0 +1,21 @@
+tasks:
+  - block:
+      - copy: src=epel.repo dest=/etc/yum.repos.d/epel_ansible.repo
+      - yum: name='libselinux-python, nginx' state=present
+    when: ansible_os_family == 'RedHat'
+
+  - block:
+      - apt_repository: repo='ppa:nginx/stable'
+      - apt: name='python-selinux, nginx' state-installed
+    when: ansible_os_family == 'Debian'
+
+tasks:
+  - block:
+      - command: /bin/false
+      - debug:   msg='上記のタスクでエラーが発生するため、この処理は実行されません'
+    rescue:
+      - debug: msg='エラーが発生しました'
+      - command: /bin/false
+      - debug: msg='上記のタスクでエラーが発生するため、この処理は実行されません'
+    always:
+      - debug: msg="いつでも実行されます"

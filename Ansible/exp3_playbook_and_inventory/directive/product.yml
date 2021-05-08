@@ -1,0 +1,13 @@
+tasks:
+  - name: Grant users access to multiple databases
+    postgresql_user:
+      db:       "{{ item[0] }}"
+      name:     "{{ item[1] }}"
+      password: ansible
+      priv:     ALL
+      state:    "present"
+    loop: "{{ db_info[0] | product( db_info[1] ) | list }}"
+    vars:
+      db_info:
+        - [ 'org_db', 'provider_db', 'employee_db' ]
+        - [ 'user01', 'user02' ]

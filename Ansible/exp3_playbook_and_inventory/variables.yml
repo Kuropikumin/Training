@@ -1,0 +1,38 @@
+## environment variables
+- hosts: all
+  environment:
+    http_proxy:  http://proxy.xxx.xxx:xxxxx
+    https_proxy: http://proxy.xxx.xxx:xxxxx
+
+## proxy variables
+vars:
+  proxy_env:
+    http_proxy: http://proxy.xxx.xxx:xxxxx
+
+## play variables
+##   tasks variables
+- hosts: all
+  tasks:
+    - debug: var=target_env
+      vars:
+        target_env: dev
+
+##   play valiables
+- hosts: all
+  vars:
+    target_env: dev
+  tasks:
+    - debug: var=target_env
+
+
+## inventory variables
+- hosts: all
+  tasks:
+    - name:     Get hardware information
+      shell:    uname -r
+      register: result
+
+    - name:  Debug registerd variable
+      degug:
+        var: result
+

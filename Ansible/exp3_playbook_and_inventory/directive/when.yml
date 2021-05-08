@@ -1,0 +1,39 @@
+tasks:
+  - name: Install the httpd for web_servers
+    yum:
+      name:  httpd
+      state: installed
+    when: host_role == 'web'
+
+  - name: Install the mysql for db_servers
+    yum:  name=mysql state=installed
+    when: host_role=='db'
+
+  - name: Install the ntp in RedHat
+    yum:
+      name:  ntp
+      state: installed
+    when: ansible_os_family == 'RedHat'
+
+  - name: Install the ntp in Debian
+    apt:
+      name:  ntp
+      state: installed
+    when: ansible_os_family == 'Debian'
+
+
+## changed_when, faild_when
+tasks:
+## /tmpフォルダが用意されており、条件に合わないためfailedではないとみなされて次の処理に進む
+  - name:        Control status by failed_when
+    command:     mkdir /tmp
+    register:    failed_result
+    failed_when: failed_result.stderr == ""
+
+## AnsibleがインストールされていればOKの状態になる
+  - name:         Control status by changed_when
+    command:      which ansible
+    register:     changed_result
+    changed_when: changed_result.rc != 0
+
+

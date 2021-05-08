@@ -1,0 +1,31 @@
+tasks:
+  - name: Count databeses
+    debug:
+      msg: "{{ item }} with index {{ mysql_idx }}"
+    loop:
+      - name:  server-a
+        cpu:   2core
+        disks: 5GB
+        ram:   15Gb
+      - name:  server-b
+        cpu:   3core
+        ... 省略 ...
+      - name:  server-e
+        cpu:   2core
+        disks: 5Gb
+        ram:   15Gb
+    loop_control:
+      index_var: mysql_idx         ## サーバの数だけインデックス番号が付与
+      pause:     2                 ## 繰り返しを2秒ごとに実行
+      label:     "{{ item.name }}" ## サーバ名でラベルを付与
+
+## 実行結果
+# ok: [localhost] => (item=server-a) => {
+#     "msg": "{'name': 'server-a', 'cpu': '2core', 'disks': '5Gb', 'ram': '15Gb'}
+#   with index 0"
+# }
+#  ...
+# ok: [localhost] => (item=server-e) => {
+#     "msg": "{'name': 'server-e', 'cpu': '2core', 'disks': '5Gb', 'ram': '15Gb'}
+#   with index 4"
+# }

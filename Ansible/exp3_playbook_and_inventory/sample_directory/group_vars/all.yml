@@ -1,0 +1,4 @@
+---
+[all:vars]           ## すべてのターゲットノードで利用される変数設定
+ansible_port=1022    ## SSH接続時に使用するポートの設定
+ansible_user=ansible ## SSH接続時に使用するユーザ名

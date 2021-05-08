@@ -1,0 +1,7 @@
+# 以下のタスクに失敗しても処理を実行
+tasks:
+  - name:          Ignore error(mkdir /tmp)
+    command:       mkdir /tmp
+    ignore_errors: true
+
+

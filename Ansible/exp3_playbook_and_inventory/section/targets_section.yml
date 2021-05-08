@@ -1,0 +1,13 @@
+## [Targetセクションのフォーマット]
+## -host: <ホストパターン>
+##        <ディレクティブ>:<値>
+##        <ディレクティブ>:<値>
+##        <ディレクティブ>:<値>
+##
+## [Example]
+  - hosts: "*.ansible.local"
+    gather_facts:  true
+    remote_user:   root
+    become:        true
+    become_user:   ansible
+    become_method: su

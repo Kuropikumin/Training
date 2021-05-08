@@ -1,0 +1,31 @@
+## [Varsセクションのフォーマット]
+## vars:
+##   <変数名>:<値>
+##   <変数名>:<値>
+##
+## [Example]
+vars:
+  httpd_version: 2.4
+  warning_text:  'WARNING: Use it by Management User'
+  contents:      yes
+
+## vars_files:
+##   - <変数ファイル>
+##   - <変数ファイル>
+##
+## [Example]
+vars_files:
+  - ./vars/prod_vars.yml
+
+## vars_prompt:
+##   - name:    <変数名>
+##     prompt:  <表示テキスト>
+##     private: <True/False>
+##     confirm: <True/False>
+##
+## [Example]
+vars_prompt:
+  - name:    "Passphrase"
+    prompt:  "Please enter your password."
+    private: true
+    confirm: true

@@ -1,0 +1,21 @@
+## [Handler セクションのフォーマット]
+## handlers:
+## - name: <タスク名>
+##   <モジュール名>:
+##     <アーギュメント>: <値>
+##     <アーギュメント>: <値>
+##
+## [Example]
+tasks:
+  - name: Config HTTP
+    template:
+      src:  httpd.conf.j2
+      dest: /etc/apache/httpd.conf
+    notify:
+      - Restart HTTP
+
+handlers:
+  - name: Restart HTTP
+    service:
+      name:  httpd
+      state: restarted

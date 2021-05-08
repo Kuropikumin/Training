@@ -1,0 +1,18 @@
+## [Tasksセクションのフォーマット]
+## tasks:
+## - name: <タスク名>
+##   <モジュール名>:
+##     <アーギュメント>: <値>
+##     <アーギュメント>: <値>
+##
+## [Example]
+tasks:
+  - name: Install NTP
+    yum:
+      name:  ntp
+      state: installed
+
+  - name: Config NTP
+    template:
+      src:  ntp.conf.j2
+      dest: /etc/ntp.conf

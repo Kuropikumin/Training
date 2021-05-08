@@ -1,0 +1,4 @@
+## ./vars/prd_vars.yml
+httpd_version: 2.4
+password:      ansible
+app_contents:  yes

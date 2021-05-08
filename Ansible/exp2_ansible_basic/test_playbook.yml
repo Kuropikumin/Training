@@ -1,0 +1,16 @@
+---
+- hosts: test_server
+  tasks:
+  - name: create directory
+    file:
+        path: /home/xxx/tmp ## change xxx to user name
+        state: directory
+        owner: xxx          ## change xxx to user name
+        mode: 0755
+
+  - name: copy file
+    copy:
+        src: /etc/hosts
+        dest: /home/xxx/tmp/hosts ## change xxx to user name
+        owner: xxx                ## change xxx to user name
+        mode:  0644

@@ -1,0 +1,46 @@
+vars:
+  loop_test:
+    - ["test01", "test02"]
+    - "test03"
+
+tasks:
+  - name: Confirmation flatten for with_items
+    debug:
+      msg: "{{ item }}"
+    with_items: "{{ loop_test }}"
+
+  - name: Confirmation flatten for loop
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ loop_test }}"
+
+### 実行結果
+# TASK [Gathering Facts] ****************************************************************************************************************************************
+# [WARNING]: Platform linux on host localhost is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python
+# interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+# ok: [localhost]
+#
+# TASK [Confirmation flatten for with_items] ********************************************************************************************************************
+# ok: [localhost] => (item=test01) => {
+#     "msg": "test01"
+# }
+# ok: [localhost] => (item=test02) => {
+#     "msg": "test02"
+# }
+# ok: [localhost] => (item=test03) => {
+#     "msg": "test03"
+# }
+#
+# TASK [Confirmation flatten for loop] **************************************************************************************************************************
+# ok: [localhost] => (item=['test01', 'test02']) => {
+#     "msg": [
+#         "test01",
+#         "test02"
+#     ]
+# }
+# ok: [localhost] => (item=test03) => {
+#     "msg": "test03"
+# }
+#
+# PLAY RECAP ****************************************************************************************************************************************************
+# localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0

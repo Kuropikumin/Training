@@ -1,0 +1,19 @@
+tasks:
+  - name: Deply Application
+    git:
+      repo: "https://github.com/WordPress?wordPress.git"
+      dest: /var/www
+    notify: "Reload web contents" ## ハンドラ名の指定
+
+handlers:
+  - name: Restart php-fpm
+    systemd:
+      name:  php-fpm
+      state: restarted
+    listen:  "Reload web contents" ## ハンドラ名に関するタスク
+
+  - name: Restart nginx
+    systemd:
+      name:  nginx
+      state: restarted
+    listen:  "Reload web contents" ## ハンドラ名に関するタスク
