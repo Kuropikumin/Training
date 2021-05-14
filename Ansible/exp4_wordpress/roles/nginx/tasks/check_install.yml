@@ -1,0 +1,9 @@
+---
+# (1) firewalld のポート許可
+- name: check_install / Allow ports for firewalld
+  firewalld:
+    port:      "{{ item }}"
+    permanent: yes
+    immediate: yes
+    state:     enabled
+  loop: "{{ nginx_firewalld_port }}"

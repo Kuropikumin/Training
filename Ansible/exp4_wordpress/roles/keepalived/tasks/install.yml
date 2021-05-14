@@ -1,0 +1,6 @@
+---
+# (1) Keepalived のインストール
+- name: install / Install required packages
+  yum:
+    name:  "{{ keepalived_packages }}"
+    state: present

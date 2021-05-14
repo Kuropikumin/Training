@@ -1,0 +1,63 @@
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
+#
+# See the examples of server my.cnf files in /usr/share/mysql/
+#
+
+# this is read by the standalone daemon and embedded servers
+[server]
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+
+#
+# * Galera-related settings
+#
+[galera]
+# Mandatory settings
+#wsrep_on=ON
+#wsrep_provider=
+wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
+#wsrep_cluster_address=
+wsrep_cluster_address="gcomm://
+{%- for host in groups['databases'] -%}
+{{ hostvars[host].ansible_enp0s8.ipv4.address }}
+{%- if not loop.last %},{% endif -%}
+{%- endfor -%}"
+#binlog_format=row
+binlog_format=row
+#default_storage_engine=InnoDB
+default_storage_engine=InnoDB
+#innodb_autoinc_lock_mode=2
+innodb_autoinc_lock_mode=2
+innodb_locks_unsafe_for_binlog=1
+
+# Allow server to accept connections on all interfaces.
+#
+#bind-address=0.0.0.0
+bind-address={{ ansible_enp0s8.ipv4.address }}
+
+# Optional setting
+#wsrep_slave_threads=1
+#innodb_flush_log_at_trx_commit=0
+wsrep_cluster_name="MariaDB_Cluster"
+wsrep_node_name="{{ ansible_hostname }}"
+wsrep_node_address={{ ansible_enp0s8.ipv4.address }}
+wsrep_sst_method=rsync
+wsrep_sst_auth={{ mariadb_sst_user }}:{{ mariadb_sst_pass }}
+wsrep_on=ON
+
+# this is only for embedded server
+[embedded]
+
+# This group is only read by MariaDB servers, not by MySQL.
+# If you use the same .cnf file for MySQL and MariaDB,
+# you can put MariaDB-only options here
+[mariadb]
+
+# This group is only read by MariaDB-10.5 servers.
+# If you use the same .cnf file for MariaDB of different versions,
+# use this group for options that older servers don't understand
+[mariadb-10.5]
+

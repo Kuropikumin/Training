@@ -1,0 +1,37 @@
+---
+- hosts:        localhost
+  gather_facts: false
+
+  pre_tasks:
+    - name: Updated Packages
+      apt:
+        update_cache: yes
+      notify: Apt updated
+
+    - name: Upgrade the virtualenv
+      pip:
+        requirements: /my_app/requirements.txt
+        virtualenv:   /my_app/venv
+
+  roles:
+    - common
+    - nginx
+    - mysql
+    - my_app
+
+  tasks:
+    - name:  Sync Database
+      shell: /my_app/venv/bin/python /my_app/code/webapp/manage.py syncdb --migrate --noinput
+      notify: Check synced data
+
+  handlers:
+    - name:  Apt updated
+      debug:
+        msg: "Packages are updated. Check the processes."
+
+    - name:  Check synced data
+      shell: /my_app/venv/bin/python /my_app/code/webapp/data_check.py
+
+  post_tasks:
+    - name:    Reboot System
+      command: /sbin/shutdown -r now

@@ -1,0 +1,19 @@
+---
+# (1) Remi リポジトリのインストール
+- name: install / Import repository
+  #get_url:
+  #  url:  http://rpms.famillecollet.com/enterprise/remi.repo
+  #  dest: /etc/yum.repos.d/remi.repo
+  #  mode: 0644
+  #  get_url での手法がうまくいかなかったのでインストール方式で
+  yum:
+    name:         http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+    state:        present
+    update_cache: yes
+
+# (2) PHP_FPMのインストール
+- name: install / Install required packages
+  yum:
+    name:       "{{ php_packages }}"
+    state:      present
+    enablerepo: remi-php71

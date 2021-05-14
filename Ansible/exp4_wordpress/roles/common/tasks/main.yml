@@ -1,0 +1,33 @@
+---
+## (1) SELinuxのモード変更
+- name: configure / SELinux permissive
+  selinux:
+    policy: targeted
+    state:  permissive
+  when: ansible_selinux.config_mode == 'enforcing'
+
+## (2) IPv6 インターフェースの無効化
+- name: configre / Disable ipv6 interface
+  sysctl:
+    state:      present
+    name:       "{{ item }}"
+    value:      '1'
+    sysctl_set: yes
+    reload:     yes
+  loop:
+    - net.ipv6.conf.all.disable_ipv6
+    - net.ipv6.conf.default.disable_ipv6
+
+## (3) YUMパッケージアップデート
+- name: configure / Update yum packages
+  yum:
+    name:         '*'
+    state:        latest
+    update_cache: yes
+
+## (4) EPEL リポジトリ設定
+- name: configure / Import EPEL Repository
+  yum:
+    name:         epel-release
+    state:        latest
+    update_cache: yes
