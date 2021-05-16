@@ -1,0 +1,30 @@
+---
+- name:   Initialize OS setting for Linux Servers
+  hosts:  linux_servers
+  become: true
+
+# proxy設定（必要があれば）
+#environment:
+#  http_proxy:  "http://proxy.example.com:XXXXX"
+#  https_proxy: "http://proxy.example.com:XXXXX"
+
+  roles:
+    - role: common/locale   # (1) ロケール管理
+      tags: "locale"
+    - role: common/packages # (2) パッケージ管理
+      tags: "packages"
+    - role: common/users    # (3) ユーザ管理
+      tags: "user"
+    - role: common/networks # (4) ネットワーク管理
+      tags: "net"
+    - role: common/resolver # (5) リゾルバ管理
+      tags: "resolver"
+
+  post_tasks:
+    - name: Restart target nodes
+      reboot:
+
+    - name: Waiting connection
+      wait_for_connection:
+        delay:   5
+        timeout: 60

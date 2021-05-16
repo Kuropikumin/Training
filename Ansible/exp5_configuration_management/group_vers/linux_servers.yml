@@ -1,0 +1,15 @@
+---
+operation_gw: "192.168.56.1"
+internal_gw:  "192.168.100.1"
+external_gw:  "10.0.2.15"
+
+network_ethernet:
+  - { conn_name: 'enp0s8', ip4: "{{ operation_ip }}", gw4: "{{ operation_gw }}" }
+  - { conn_name: 'enp0s9', ip4: "{{ internal_ip }}",  gw4: "{{ internal_gw }}"  }
+
+network_bond:
+  - { conn_name: 'bond0', ip4: "{{ operation_ip }}", gw4: "{{ operation_gw }}" }
+
+network_bond_slave:
+  - { conn_name: 'slave-enp0s3',  ifname: 'enp0s3',  master: 'bond0' }
+  - { conn_name: 'slave-enp0s10', ifname: 'enp0s10', master: 'bond0' }

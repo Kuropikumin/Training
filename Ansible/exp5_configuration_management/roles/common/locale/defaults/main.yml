@@ -1,0 +1,8 @@
+---
+# Select timezone from following command results
+# timedatectl list-timezones
+# localectl list-locales
+# localectl list-keymaps
+locale_timezone: "JST"
+locale_locale:   "en_US.UTF-8"
+locale_keymap:   "us"
