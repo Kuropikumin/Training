@@ -1,0 +1,9 @@
+以下のファイルを js/lib/ 配下にダウンロードしてください
+()内は2021/7/24 時点でのファイルダウンロード先です
+・jQuery(https://code.jquery.com/jquery-3.6.0.min.js)
+  - jquery.min.js で保存
+・Tappable(https://github.com/cheeaun/tappable)
+・monaca(https://github.com/monaca/monaca.js)
+・base2(https://github.com/meritt/base2)
+・base64(https://github.com/dankogai/js-base64)
+
