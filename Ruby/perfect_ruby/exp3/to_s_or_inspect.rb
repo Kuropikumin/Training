@@ -1,5 +1,5 @@
 class Ruler
-  def initialize(length)
+  def initialize( length )
     @length = length
   end
 
@@ -8,11 +8,11 @@ class Ruler
   end
 
   def inspect
-    "Ruler(length: #{@length})"
+    "Ruler( length: #{ @length } )"
   end
 end
 
-ruler = Ruler.new(20)
+ruler = Ruler.new( 20 )
 
 puts ruler
 p ruler

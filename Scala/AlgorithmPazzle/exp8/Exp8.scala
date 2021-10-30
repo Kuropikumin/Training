@@ -1,8 +1,19 @@
 object Exp8 {
-  def main( args: Array[String] ): Unit = {
-    val ROW_LENGTH = 10
-    val COL_LENGTH = 10
+  var calc_count = 0
 
-    println( ( ROW_LENGTH - 1 ) + ( COL_LENGTH - 1 ) + 1 )
+  def printExecTime( process: => Unit ): Unit = {
+    val start = System.currentTimeMillis
+      process
+      println( "処理時間： " + ( System.currentTimeMillis - start ) + " ミリ秒" )
+  }
+
+  def main( args: Array[String] ): Unit = {
+    val cell_rows = args( 0 ).toInt
+    val cell_cols = args( 1 ).toInt
+
+    printExecTime {
+      println( cell_cols + cell_rows - 1 )
+      println( "calc count = " + calc_count )
+    }
   }
 }

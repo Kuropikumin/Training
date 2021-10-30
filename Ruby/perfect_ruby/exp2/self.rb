@@ -3,7 +3,7 @@ class Ruler
 
   def self_length
     self.length = 30
-    length =20
+    length      = 20
   end
 end
 

@@ -1,12 +1,12 @@
-def greet(name, message = 'hi')
+def greet( name, message = 'hi' )
   puts "#{message}, #{name}"
 end
 
-def hoge(name, *)
+def hoge( name, * ) 
   puts name
 end
 
-def greet_twice(name, first, second)
+def greet_twice( name, first, second )
   puts "#{first}, #{name}."
   puts "#{second}, #{name}."
 end

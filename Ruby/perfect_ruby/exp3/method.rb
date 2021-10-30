@@ -6,11 +6,19 @@ def Hello
   p 'Hello'
 end
 
+def hello
+  p 'hello'
+end
+
 sweet = 'sweet'
 
 p sweet
 p sweet()
 
-# p Hello # NameErrorが発生（頭文字が大文字の場合、クラス名であると判断される。頭が大文字の場合、以下のようにする）
-self.Hello
-Hello()
+# p Hello # uninitialized constant Hello (NameError)
+p Hello()
+
+p hello
+self.hello
+hello()
+hello

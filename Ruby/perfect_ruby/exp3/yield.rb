@@ -6,9 +6,9 @@ end
 
 my_sample do
   puts 'yield!!!'
+  break 3300
   5523
 end
 
-# my_sample # LocalJumpError(yieldで実行するためのブロックを渡していないため) 
-          # -> block_given?を使ってblockを渡したか確認すると、Errorを避けられる
+# my_sample # no block given (yield) (LocalJumpError)
 

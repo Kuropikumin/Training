@@ -1,5 +1,6 @@
 object Permutation
 {
+  
   def main( args: Array[String] ): Unit = 
   {
     println( "6_P_3 = " + permutation( 6, 3 ) )

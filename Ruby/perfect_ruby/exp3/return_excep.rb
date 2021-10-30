@@ -9,10 +9,14 @@ d = 'ensure process'
 
 return_value =
   begin
-    raise StandardError, 'StandardErrorです'
     a
+    raise LoadError, 'LoadErrorです'
+    b
   rescue StandardError => e
+    puts e.class
+    c
   ensure
+    d
   end
 
-puts "return_value : #{return_value}"
+puts "return_value : #{ return_value }"

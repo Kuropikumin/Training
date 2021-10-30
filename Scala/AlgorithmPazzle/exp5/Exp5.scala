@@ -1,43 +1,62 @@
 object Exp5 {
-  def main(args: Array[String]): Unit = {
+ var calc_count = 0
 
-    val check_num = 45
-    var total_sheet_num = 0.toLong
-
-    ( 0 to check_num ).foreach{ i =>
-      val calc_num = calcCombination( check_num, i ) 
-      val sheet_num = calcNumberOfSheets( calc_num )
-      println( i + " > " + calc_num + " : " + sheet_num )
-      total_sheet_num += sheet_num
-    }
-    println( "total_sheet_num : " + total_sheet_num )
+  def printExecTime( process: => Unit ): Unit = {
+    val start = System.currentTimeMillis
+    process
+    println( "処理時間： " + ( System.currentTimeMillis - start ) + " ミリ秒" )
   }
 
-  def calcCombination( n_num: Int, r_num: Int ): Long = {
-    val n = n_num
-    val r = if ( n_num - r_num < r_num ) n_num - r_num else r_num
+  def main( args: Array[String] ): Unit = {
 
-    var answer_num = 1.0
-    if( r == 0 ) return 1
-    else {
-      ( 1 to r ).foreach { i =>
-        answer_num /= i.toDouble
-        answer_num *= ( n - i + 1 ).toDouble
+    val n = args( 0 ).toInt
+    printExecTime {
+      val pascal_arr = calcPascalValue( n )
+      var coin_nums = 0L
+
+      ( 0 until pascal_arr.length ).foreach { i =>
+        print( i + " : " )
+        ( 0 until pascal_arr.length ).foreach { j =>
+          print( pascal_arr( i )( j ) + " " )
+        }
+        println()
+      }
+
+      ( 0 until pascal_arr.length ).foreach { i => coin_nums += calcNecessaryCoins( pascal_arr( n )( i ) ) }
+      println( "result = " + coin_nums )
+
+      println( "calc count = " + calc_count )
+    }
+  }
+
+  def calcPascalValue( num: Int ): Array[Array[Long]] = {
+    var result = Array.fill( num + 1, num + 1 )( -1L )
+    ( 0 to num ).foreach{ i =>
+      calc_count += 1
+      result( i )( 0 ) = 1
+      result( i )( i ) = 1
+
+      ( 1 to i - 1 ).foreach { j =>
+        calc_count += 1
+        result( i )( j ) = result( i - 1 )( j ) + result( i - 1 )( j - 1 )
       }
     }
-    return answer_num.toLong
+
+    return result
   }
 
-  def calcNumberOfSheets( num: Long ): Long = {
-    var total_amount_of_money = num
-    var total_sheet_num       = 0.toLong
-    val amount_of_money       = Vector( 10000, 5000, 2000, 1000, 500, 100, 50, 10, 5, 1 )
+  def calcNecessaryCoins( values: Long ): Long = {
+    val coin_type = Array( 10000L, 5000L, 2000L, 1000L, 500L, 100L, 50L, 10L, 5L, 1L )
+    var n         = values
+    var result    = 0L
 
-    amount_of_money.foreach { i =>
-      total_sheet_num += total_amount_of_money/i.toLong
-      total_amount_of_money = total_amount_of_money%i.toLong
+    // 貪欲法による使用する紙幣・硬貨の総数を求める
+    coin_type.foreach { coin =>
+      calc_count += 1
+      result     += n/coin
+      n           = n%coin
     }
 
-    return total_sheet_num
+    return result
   }
 }

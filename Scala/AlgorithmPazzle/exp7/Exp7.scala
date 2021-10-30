@@ -1,26 +1,28 @@
 object Exp7 {
-  def main(args: Array[String]): Unit = {
+  var calc_count = 0
 
-    val CHECK_ARRAY_LENGTH = 15
-    var total_ways         = 0.toLong
-
-    ( 1 until CHECK_ARRAY_LENGTH ).foreach{ i =>
-      total_ways += ( CHECK_ARRAY_LENGTH - i ).toLong*calcPermutation( CHECK_ARRAY_LENGTH, i - 1 )*i
-    }
-    println( "total_sheet_num : " + total_ways )
+  def printExecTime( process: => Unit ): Unit = {
+    val start = System.currentTimeMillis
+      process
+      println( "処理時間： " + ( System.currentTimeMillis - start ) + " ミリ秒" )
   }
 
-  def calcPermutation( n_num: Int, r_num: Int ): Long = {
-    val n = n_num
-    val r = r_num
-    var answer_num = 1.toLong
-
-    if( r == 0 ) return 1
-    else {
-      ( 1 to r ).foreach { i =>
-        answer_num *= ( n + 1 - i ).toLong
+  def main( args: Array[String] ): Unit = {
+    val character_type = args( 0 ).toInt
+    printExecTime {
+      var result = 0L
+      ( 0 until character_type ).foreach { i =>
+        result += ( character_type - i )*i*permutation( character_type, character_type - i - 1 )
       }
+      println( "result = " + result )
+      println( "calc count = " + calc_count )
     }
-    return answer_num
+  }
+
+  def permutation( n: Int, r: Int ): Long = {
+    calc_count += 1
+    if     ( n == r ) return 1L
+    else if( r == 0 ) return 1L
+    else              return n.toLong*permutation( n - 1, r - 1 )
   }
 }

@@ -1,5 +1,5 @@
-greeter = Proc.new { |name|
-  puts "Hello, #{name}"
+greeter = Proc.new { | name |
+  puts "Hello, #{ name }"
 }
 
 greeter.call 'Proc'

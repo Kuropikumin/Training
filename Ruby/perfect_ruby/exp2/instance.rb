@@ -1,5 +1,5 @@
 class Ruler
-  def length=(val)
+  def length=( val )
     @length = val
   end
 

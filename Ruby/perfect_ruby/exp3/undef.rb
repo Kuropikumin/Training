@@ -7,5 +7,5 @@ puts 'hogehoge'
 
 undef greet, puts
 
-#greet
-p 'fugafuga'
+# greet           # undefined local variable or method `greet' for main:Object (NameError)
+# puts 'fugafuga' # undefined method `puts' for main:Object (NoMethodError)

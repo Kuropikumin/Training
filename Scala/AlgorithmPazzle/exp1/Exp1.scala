@@ -1,30 +1,34 @@
 object Exp1 {
-  def main(args: Array[String]): Unit = {
-    val peoples = 100
-    var finish_comb = 0
+  var calc_count = 0
 
-    (0 to peoples).foreach { i =>
-      (0 to i).foreach { j =>
-
-        var rock_nums     = peoples - i
-        var scissors_nums = i - j
-        var paper_nums    = j
-
-        if( isFinishGame( rock_nums, scissors_nums, paper_nums ) ) finish_comb += 1
-      }
-    }
-
-    println(finish_comb)
-
+  def printExecTime(process: => Unit): Unit = {
+    val start = System.currentTimeMillis
+    process
+    println("処理時間： " + (System.currentTimeMillis - start) + " ミリ秒")
   }
 
-  def isFinishGame( rock_nums: Int, scissors_nums: Int, paper_nums: Int ): Boolean = {
-    if( ( rock_nums     > scissors_nums && rock_nums     > paper_nums ) ||
-        ( scissors_nums > rock_nums     && scissors_nums > paper_nums ) ||
-        ( paper_nums    > rock_nums     && paper_nums    > scissors_nums )
-      ) {
-        return true
+  def main( args: Array[String] ): Unit = {
+    val nums   = args( 0 ).toInt
+    var result = 0
+
+    printExecTime { 
+      ( 0 to nums ).foreach { rock =>
+        ( 0 to nums - rock ).foreach { scissors =>
+          calc_count += 1
+          val paper = nums - rock - scissors
+          
+          if( isWinTheGame( rock, scissors, paper ) ) result += 1
+        }
+      }
+      println( "Win the game nums = " + result )
+      println( "calc count = " + calc_count )
     }
-    return false
+  }
+
+  def isWinTheGame( r: Int, s: Int, p: Int ): Boolean = {
+    val result = Array( r, s, p ).sorted
+
+    if( result( 2 ) > result( 1 ) ) return true
+    else                            return false
   }
 }

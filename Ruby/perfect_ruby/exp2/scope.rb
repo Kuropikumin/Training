@@ -1,7 +1,7 @@
 foo = 'foo is toplevel variable'
 
 def print_foo
-  puts foo # NameError発生（fooが定義されていないため）
+  puts foo # NameError: undefined local variable or method `foo' for main:Object
 end
 
 puts foo

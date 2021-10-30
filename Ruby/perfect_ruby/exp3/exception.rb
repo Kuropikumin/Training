@@ -1,4 +1,4 @@
-def my_exception_check(error_name, error_message)
+def my_exception_check( error_name, error_message )
   raise error_name, error_message
 end
 

@@ -7,7 +7,7 @@ catch :triple_loop do
       loop do
         p 'three'
         count += 1
-        if(count > 5) then throw :triple_loop end
+        if( count > 5 ) then throw :triple_loop end
       end
     end
   end
