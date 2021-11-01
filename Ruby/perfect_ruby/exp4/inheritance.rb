@@ -19,13 +19,13 @@ class Child < Parent
     @test = 'child'
   end
 
-  def self_introduction(name)
-    puts "My Name is #{name}"
+  def self_introduction( name )
+    puts "My Name is #{ name }"
   end
 end
 
 class GrandChild < Child
-  def self_introduction(name)
+  def self_introduction( name )
     super
     puts "Nice to meet you!"
   end
@@ -36,14 +36,14 @@ b = Child.new
 c = GrandChild.new
 puts Child.superclass
 a.greet
-b.greet # 継承
+b.greet # Parent.greet 
 
-puts a.test # initialize
-puts b.test # initialize のoverride
+puts a.test # Parent initialize
+puts b.test # Child initialize
 
-puts Child::PARENT # class変数の継承
+puts Child::PARENT # class constant num
 
 a.self_introduction
-#b.self_introduction # Error(引数が指定されていないため)
+# b.self_introduction # wrong number of arguments (given 0, expected 1) (ArgumentError)
 b.self_introduction("fuga")
 c.self_introduction("piyo")

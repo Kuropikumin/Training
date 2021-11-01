@@ -1,6 +1,6 @@
 module MyModule
-  def greet_to(name)
-    puts "Hello, #{name}"
+  def greet_to( name )
+    puts "Hello, #{ name }"
   end
 
   class Hoge

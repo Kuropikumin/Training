@@ -10,5 +10,5 @@ class MyClass
   end
 end
 
-puts MyClass.pair
-puts MyClass.trio
+p MyClass.pair
+p MyClass.trio
