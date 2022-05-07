@@ -21,7 +21,7 @@ class Server( paramiko.ServerInterface ):
             return paramiko.AUTH_SUCCESSFUL
 
 if __name__ == '__main__':
-    server   = '127.0.0.1'
+    server   = '192.168.0.1'
     ssh_port = 2222
     try:
         sock = socket.socket( socket.AF_INET, socket.SOCK_STREAM )

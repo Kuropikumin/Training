@@ -123,15 +123,15 @@ if __name__ == '__main__':
                  epilog          = textwrap.dedent(
                                        '''実行例：
                                        # 対話型コマンドシェルの起動
-                                       netcat.py -t 192.168.1.108 -p 5555 -l -c
+                                       netcat.py -t 192.168.0.1 -p 5555 -l -c
                                        # ファイルのアップロード
-                                       netcat.py -t 192.168.1.108 -p 5555 -l -u=mytest.txt
+                                       netcat.py -t 192.168.0.1 -p 5555 -l -u=mytest.txt
                                        # コマンドの実行
-                                       netcat.py -t 192.168.1.108 -p 5555 -l -e=\"cat /etc/passwd\"
+                                       netcat.py -t 192.168.0.1 -p 5555 -l -e=\"cat /etc/passwd\"
                                        # 送信先サーバの135番ポートに文字列を送信
-                                       echo 'ABC' | ./netcat.py -t 192.168.1.108 -p 135
+                                       echo 'ABC' | ./netcat.py -t 192.168.0.1 -p 135
                                        # サーバに接続
-                                       netcat.py -t 192.168.1.108 -p 5555
+                                       netcat.py -t 192.168.0.1 -p 5555
                                        '''
                                    )
              )
@@ -140,7 +140,7 @@ if __name__ == '__main__':
     parser.add_argument( '-e', '--execute', help = '指定のコマンド実行' )
     parser.add_argument( '-l', '--listen', action = 'store_true', help = '通信待ち受けモード' )
     parser.add_argument( '-p', '--port', type = int, default = 5555, help = 'ポート番号の指定' )
-    parser.add_argument( '-t', '--target', default = '192.168.1.203', help = 'IPアドレスの指定' )
+    parser.add_argument( '-t', '--target', default = '192.168.0.1', help = 'IPアドレスの指定' )
     parser.add_argument( '-u', '--upload', help = 'ファイルのアップロード' )
 
     args = parser.parse_args()
