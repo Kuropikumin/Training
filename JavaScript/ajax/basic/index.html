@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Basic</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+    <form name = "fm" >
+        <label>名前：<input type="text" name="name" size="15"></label>
+        <input type="button" id="btnsend" name="submit" value="送信" onclick="anscSend()">
+    </form>
+    <div id="result"></div> <!-- このdiv内に成形したデータを非同期で入れる -->
+</body>
+</html>
+
+
+<!-- JavaScriptでの実装 -->
+<!--
+<script>
+    function anscSend() {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            var result = document.getElementById( 'result' );
+            if( req.readyState == 4 ) {   // 通信の完了時
+                if( req.status == 200 ) { // 通信の成功時
+                    result.innerHTML = req.responseText;
+                    console.log( req.responseText );
+                }
+                else {
+                    result.innerHTML = '通信中...';
+                }
+            }
+        }
+    
+        req.open( 'GET', 'helloAjax.php?name=' + encodeURIComponent( document.fm.name.value ), true );
+        req.send( null );
+    
+        // var data = eval( '(' + req.responseText + ')' );
+    }
+
+</script>
+-->
+
+<!-- jQueryでの実装 -->
+<script>
+    function anscSend() {
+        var result = document.getElementById( 'result' );
+        $.ajax( {
+            type: "POST",
+            url:  "helloAjax.php",
+            data: { name: "John", location: "Boston" },
+            dataType: "json"
+        } ).done( function( msg ) {
+            result.innerHTML = msg;
+            console.log( msg );
+        } );
+    }
+</script>
