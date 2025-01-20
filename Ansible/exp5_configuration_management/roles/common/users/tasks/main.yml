@@ -28,7 +28,7 @@
 - name: main / Deploy temporary sudoers files
   template:
     src:      "{{ item.value.priv }}_sudoers.j2"
-    dest:     "/etc/sudores.d/{{ item.key }}"
+    dest:     "/etc/sudoers.d/{{ item.key }}"
     owner:    root
     group:    root
     mode:     0400

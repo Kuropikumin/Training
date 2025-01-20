@@ -1,0 +1,3 @@
+puts
+
+print007a

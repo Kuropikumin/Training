@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  vue-app:
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    ports:
+      - 40080:8080
+    volumes:
+      - ./frontend/app:/src
+      - ./share/all:/var/share/all
+    tty: true
+    environment:
+      - NODE_ENV=development

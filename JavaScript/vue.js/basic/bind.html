@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js Template</title>
+    </head>
+    <body>
+        <!-- <v-bind>: JavaScriptの式を埋め込む -->
+        <!-- これはNG <a href="{{ url }}"> WINGプロジェクト </a> -->
+        <div id="app">
+            <a v-bind:href="url"> WINGプロジェクト </a>
+        </div>
+
+        <!-- ブール属性をbind刷る場合はtrue値を用いる -->
+        <div id="app2">
+            <input type="button" value="クリック" v-bind:disabled="flag" />
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.4.23/dist/vue.global.js"></script>
+        <script src="js/bind.js"></script>
+    </body>
+</html>

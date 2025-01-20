@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js Template</title>
+    </head>
+    <body>
+        <div id="app">
+            <!--
+                <p>{{ message }}</p> 
+                Mustache構文
+            -->
+            <!-- <v-text>: 引数の式を呼び出す（テンプレートに埋め込む）。Mustanche構文とほとんど同じ -->
+            <!-- <p v-text="message"></p> -->
+
+
+        </div>
+        <!-- <v-pre>: {{}}（Mustanche構文を無効化する） -->
+        <p v-pre>{{ message }}</p>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.4.23/dist/vue.global.js"></script>
+        <script src="js/hello.js"></script>
+    </body>
+</html>

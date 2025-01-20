@@ -3,27 +3,20 @@ object Main {
     var continue_flag = true
 
     while( continue_flag ) {
-      val Array( intermediate, term_end, make_up ) = scala.io.StdIn.readLine.split( " " ).map{ _.toInt }
-      
-      if( intermediate == -1 && term_end == -1 && make_up == -1 ) continue_flag = false
-      else                                                        println( calcGrades( intermediate, term_end, make_up ) )
+      val Array( n, x ) = scala.io.StdIn.readLine.split( " " ).map{ _.toInt }
+      var sum = 0
 
-    }
-  }
+      if( n == 0 && x == 0 ) continue_flag = false
+      else {
+        ( 1 to n ).foreach{ i =>
+          ( i + 1 to n ).foreach{ j =>
+            val k = x - i - j
   
-  def calcGrades( i: Int, t: Int, m: Int ): String = {
-    if( i == -1 || t == -1 ) return "F"
-    else {
-      val sum = i + t
-      sum match {
-        case sum if sum >= 80 => return "A"
-        case sum if sum >= 65 => return "B"
-        case sum if sum >= 50 => return "C"
-        case sum if sum >= 30 => {
-          if( m >= 50 ) return "C"
-          else          return "D"
+            if( j < k && k <= n ) sum += 1
+          } 
         }
-        case _ => return "F"
+        
+        println( sum )
       }
     }
   }

@@ -1,0 +1,59 @@
+---
+# (1) NetworkManagerのインストール
+- name: main / Install required network libraries
+  yum:
+    name:  "{{ network_packages }}"
+    state: installed
+
+# (2) NetworkManager の起動
+- name: main / Start NetworkManager
+  systemd:
+    name:    NetworkManager
+    state:   started
+    enabled: yes
+
+# (3) Ethernet の接続プロファイル作成
+- name: main / Add ethernet connection
+  nmcli:
+    type:      ethernet
+    conn_name: "{{ item.conn_name }}"
+    ip4:       "{{ item.ip4 }}"
+    gw4:       "{{ item.gw4 }}"
+    state:     present
+  loop: "{{ network_ethernet }}"
+
+# (4) Bonding モジュールの有効化
+- name: main / Load bonding module
+  modprobe:
+    name:  bonding
+    state: present
+
+# (5) Bonding の接続プロファイル作成
+- name: main / Add bonding connection
+  nmcli:
+    type:      bond
+    conn_name: "{{ item.conn_name }}"
+    mode:      "balance-rr"
+    state:     present
+  loop: "{{ network_bond }}"
+  when: ansible_bond0 is not defined
+
+# (6) Bonding の接続プロファイル編集
+- name: main / Modify bonding connection
+  nmcli:
+    type:      bond
+    conn_name: "{{ item.conn_name }}"
+    ip4:       "{{ item.ip4 }}"
+    gw4:       "{{ item.gw4 }}"
+    state:     present
+  loop: "{{ network_bond }}"
+
+# (7) Bonding Slaveaの接続プロファイル作成
+- name: main / Add bonding slave connection
+  nmcli:
+    type:      bond-slave
+    conn_name: "{{ item.conn_name }}"
+    ifname:    "{{ item.ifname }}"
+    master:    "{{ item.master }}"
+    state:     present
+  loop: "{{ network_bond_slave }}"

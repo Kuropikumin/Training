@@ -3,6 +3,6 @@
 # timedatectl list-timezones
 # localectl list-locales
 # localectl list-keymaps
-locale_timezone: "JST"
+locale_timezone: "Asia/Tokyo"
 locale_locale:   "en_US.UTF-8"
 locale_keymap:   "us"

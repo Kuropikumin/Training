@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    image: mynode:ver1
+    working_dir: /var/share/www/html
+    volumes:
+      - ./share/:/var/share/
+    ports:
+      - "20000:80"
+      - "20010:3000"
+      - "20020:8080"
+    tty: true
+

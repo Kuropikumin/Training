@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript method check</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+  function add( x, y ) {
+    console.log( "x + y = " + ( x + y ) );
+    if( arguments.length != 2 ) {
+      let sum = 0;
+      for( let i in arguments ) { sum += i };
+      console.log( sum );
+    }
+  }
+
+  function add2( preval, ...args ) {
+
+  }
+
+  console.log( "add( 1, 2 ) = " );
+  console.log( "message: " + add( 1, 2 ) );
+  console.log( "add( 1, 2, 3, 4, 5 ) = " );
+  console.log( "message: " + add( 1, 2, 3, 4, 5 ) );
+
+
+
+  
+</script>
